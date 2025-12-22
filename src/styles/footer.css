@@ -1,0 +1,23 @@
+.footer {
+  background: linear-gradient(
+    180deg,
+    #f8fafc 0%,
+    #eef2f7 100%
+  );
+
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 36px 40px;
+  text-align: center;
+
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.footer p {
+  margin-bottom: 6px;
+}
+
+/* Brand emphasis */
+.footer strong {
+  color: var(--secondary);
+}

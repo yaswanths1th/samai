@@ -1,0 +1,38 @@
+.review-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1500;
+}
+
+.review-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 520px;
+  width: 90%;
+}
+
+.review-box h2 {
+  margin-bottom: 16px;
+}
+
+.review-box ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.review-box li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.review-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}

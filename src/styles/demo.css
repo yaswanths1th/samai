@@ -1,0 +1,84 @@
+.demo-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--section-padding) 20px;
+}
+
+.demo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.demo-form input,
+.demo-form textarea {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  font-family: var(--font-main);
+  font-size: 14px;
+}
+
+.demo-form label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Date */
+.date-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Slots */
+.slots-section {
+  margin-top: 10px;
+}
+
+.slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.slot-btn {
+  padding: 10px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background: var(--bg-white);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slot-btn:hover {
+  border-color: var(--primary);
+}
+
+.slot-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .demo-page {
+    padding: 40px 16px;
+  }
+}
+.slot-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: #f1f5f9;
+}
+
+.err {
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: -6px;
+}
