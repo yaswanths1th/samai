@@ -1,22 +1,30 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
+import logoIcon from "../assets/android-chrome-512x512.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="navbar">
+    <header className="navbar">
       {/* LEFT */}
       <div className="nav-left">
-        <div className="logo">Samai</div>
+        <Link to="/" className="brand">
+          <img
+            src={logoIcon}
+            alt="Samai"
+            className="brand-icon"
+          />
+          <span className="brand-text">Samai</span>
+        </Link>
 
         <ul className={`nav-links ${open ? "open" : ""}`}>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/product">Product</Link></li>
           <li><Link to="/industry-domains">Industry Domains</Link></li>
           <li><Link to="/pricing">Pricing</Link></li>
-          <li><Link to="/connect">Let's Connect</Link></li>
+          <li><Link to="/connect">Let’s Connect</Link></li>
         </ul>
       </div>
 
@@ -34,6 +42,6 @@ export default function Navbar() {
           ☰
         </button>
       </div>
-    </nav>
+    </header>
   );
 }

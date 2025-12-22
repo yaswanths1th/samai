@@ -2,78 +2,81 @@ import "./product.css";
 
 export default function Product() {
   return (
-    <div className="product-page">
-      {/* Hero Section */}
+    <main className="product-page">
+
+      {/* ================= HERO ================= */}
       <section className="product-hero">
         <h1>A unified platform for business process intelligence</h1>
-        <p>
-          Samai brings together workflow modeling, orchestration, AI-driven
-          context, and analytics into a single platform designed for modern
-          enterprises.
+        <p className="product-hero-subtitle">
+          Samai brings together workflow modeling, orchestration, contextual AI,
+          and analytics into a single platform built for modern enterprises.
         </p>
       </section>
 
-      {/* Product Features Bar */}
+      {/* ================= PRODUCT SNAPSHOT ================= */}
       <section className="product-features">
         <div className="feature-card">
-          <h3>Business Process Modeling</h3>
+          <h3>Digitalise Business Functions</h3>
           <p className="feature-subtitle">
-            Design processes with structure and precision
+            Turn fragmented work into structured digital processes
           </p>
           <p>
-            Create workflows using clearly defined steps, decisions, and
-            conditions. Model approvals, parallel paths, escalations, and
-            exceptions so business logic is explicit and auditable.
+            Transform manual, document-driven, and ad-hoc business activities
+            into intelligent digital workflows. Samai converts documents,
+            conversations, and operational data into governed, executable
+            processes that are easy to understand and scale.
           </p>
         </div>
 
         <div className="feature-card">
-          <h3>Context-Aware Intelligence</h3>
+          <h3>Communicate with Context</h3>
           <p className="feature-subtitle">
-            Intelligence grounded in real business context
+            AI-driven conversations grounded in business reality
           </p>
           <p>
-            Samai’s AI understands the active process, user role, historical
-            actions, and live data. Recommendations and responses are always
-            relevant, compliant, and explainable.
+            Samai enables contextual intelligence that understands the active
+            process, user role, historical actions, and live data. Users can ask
+            questions, analyze situations, and take decisions aligned with real
+            business context — not just keywords.
           </p>
         </div>
 
         <div className="feature-card">
-          <h3>Process Orchestration</h3>
+          <h3>Orchestrate Business Processes</h3>
           <p className="feature-subtitle">
-            Humans, systems, and integrations working together
+            One orchestration layer across teams and systems
           </p>
           <p>
-            Orchestrate tasks across people, applications, and services.
-            Coordinate approvals, automate handoffs, trigger integrations, and
-            ensure reliable execution at enterprise scale.
+            Design, execute, and monitor end-to-end business processes across
+            people, applications, and integrations. Samai coordinates tasks,
+            approvals, handoffs, and system actions reliably at enterprise scale.
           </p>
         </div>
 
         <div className="feature-card">
-          <h3>Analytics & Insights</h3>
+          <h3>Analyze, Predict & Act</h3>
           <p className="feature-subtitle">
-            Visibility that drives continuous improvement
+            From operational data to continuous improvement
           </p>
           <p>
-            Monitor process performance with real-time metrics. Identify
-            bottlenecks, measure SLA adherence, and uncover optimization
-            opportunities using actionable insights.
+            Gain real-time visibility into process performance. Samai analyzes
+            execution data to surface insights, predict outcomes, and recommend
+            next-best actions — continuously improving efficiency and results.
           </p>
         </div>
       </section>
 
-      {/* Value Section */}
+      {/* ================= VALUE ================= */}
       <section className="product-value">
         <h2>Why enterprises choose Samai</h2>
         <ul>
-          <li>Designed for multi-tenant, role-based organizations</li>
-          <li>Built for compliance, auditability, and governance</li>
-          <li>Scales from small teams to large enterprises</li>
-          <li>AI-enhanced without sacrificing control or transparency</li>
+          <li>Designed for multi-tenant, role-based enterprise organizations</li>
+          <li>Built with governance, compliance, and auditability at the core</li>
+          <li>Scales seamlessly from small teams to large global operations</li>
+          <li>AI-enhanced decision-making without losing transparency or control</li>
         </ul>
       </section>
-    </div>
+
+    </main>
   );
 }

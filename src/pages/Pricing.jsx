@@ -28,10 +28,10 @@ export default function Pricing() {
           </div>
 
           <ul>
-            <li>Core workflow management</li>
-            <li>Limited users & processes</li>
-            <li>Email support</li>
-            <li>Standard security</li>
+            <li>Design and manage core business workflows</li>
+            <li>Role-based task assignment and approvals</li>
+            <li>Basic process visibility and tracking</li>
+            <li>Standard security and access controls</li>
           </ul>
 
           <button className="btn secondary" onClick={goToRegister}>
@@ -51,10 +51,10 @@ export default function Pricing() {
           </div>
 
           <ul>
-            <li>Advanced orchestration</li>
-            <li>Analytics & reporting</li>
-            <li>Role-based access control</li>
-            <li>Priority support</li>
+            <li>Advanced process orchestration across teams</li>
+            <li>Context-aware decision support and insights</li>
+            <li>Analytics, reporting, and SLA tracking</li>
+            <li>Priority support for business-critical workflows</li>
           </ul>
 
           <button className="btn primary" onClick={goToRegister}>
@@ -72,10 +72,10 @@ export default function Pricing() {
           </div>
 
           <ul>
-            <li>Unlimited workflows</li>
-            <li>Advanced AI insights</li>
-            <li>Dedicated success manager</li>
-            <li>Enterprise-grade SLAs</li>
+            <li>End-to-end orchestration across systems and integrations</li>
+            <li>Advanced analytics, insights, and predictive signals</li>
+            <li>Enterprise-grade governance, auditability, and controls</li>
+            <li>Dedicated success and onboarding support</li>
           </ul>
 
           <button className="btn secondary" onClick={goToRegister}>

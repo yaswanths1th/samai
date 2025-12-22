@@ -9,108 +9,114 @@ export default function Connect() {
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Your message has been submitted. Our team will contact you.");
+    alert("Thank you. Our team will get back to you shortly.");
+    setForm({ name: "", email: "", company: "", message: "" });
   };
 
   return (
-    <div className="connect-wrapper">
-      {/* Header */}
+    <main className="connect-page">
+      {/* HERO */}
       <section className="connect-hero">
-        <h1>Connect with Samai</h1>
+        <h1>Let’s Connect</h1>
         <p>
-          Talk to our team about product demos, enterprise pricing, partnerships,
+          Reach out to Samai for demos, enterprise pricing, partnerships,
           or technical support.
         </p>
       </section>
 
-      {/* Content */}
-      <section className="connect-content">
-        {/* Left: Contact Info */}
-        <div className="connect-info">
-          <div className="info-card">
-            <h3>General Inquiries</h3>
-            <p>info@samai.ai</p>
+      {/* CONTENT */}
+      <section className="connect-container">
+        {/* LEFT */}
+        <div className="connect-left">
+          <h2>Contact Information</h2>
+
+          <div className="info-block">
+            <strong>General</strong>
+            <span>info@samai.ai</span>
           </div>
 
-          <div className="info-card">
-            <h3>Sales & Partnerships</h3>
-            <p>sales@samai.ai</p>
+          <div className="info-block">
+            <strong>Sales</strong>
+            <span>sales@samai.ai</span>
           </div>
 
-          <div className="info-card">
-            <h3>Technical Support</h3>
-            <p>support@samai.ai</p>
+          <div className="info-block">
+            <strong>Support</strong>
+            <span>support@samai.ai</span>
           </div>
 
-          <div className="info-card">
-            <h3>Phone</h3>
-            <p>+91 9XXXXXXXXX</p>
+          <div className="info-block">
+            <strong>Phone</strong>
+            <span>+91 9XXXXXXXXX</span>
           </div>
+
+          {/* MAP */}
+          {/*<div className="map-box">
+            <iframe
+              title="Samai Location"
+              src="https://www.google.com/maps?q=India&output=embed"
+              loading="lazy"
+            />
+          </div>*/}
         </div>
 
-        {/* Right: Form */}
-        <div className="connect-form">
+        {/* RIGHT */}
+        <div className="connect-right">
           <h2>Send us a message</h2>
 
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>Full Name</label>
+            <label>
+              Full Name
               <input
                 type="text"
                 name="name"
-                placeholder="John Doe"
                 value={form.name}
                 onChange={handleChange}
                 required
               />
-            </div>
+            </label>
 
-            <div className="form-group">
-              <label>Work Email</label>
+            <label>
+              Work Email
               <input
                 type="email"
                 name="email"
-                placeholder="john@company.com"
                 value={form.email}
                 onChange={handleChange}
                 required
               />
-            </div>
+            </label>
 
-            <div className="form-group">
-              <label>Company</label>
+            <label>
+              Company
               <input
                 type="text"
                 name="company"
-                placeholder="Company name"
                 value={form.company}
                 onChange={handleChange}
               />
-            </div>
+            </label>
 
-            <div className="form-group">
-              <label>Message</label>
+            <label>
+              Message
               <textarea
                 name="message"
-                placeholder="Tell us how we can help you"
+                rows="4"
                 value={form.message}
                 onChange={handleChange}
                 required
               />
-            </div>
+            </label>
 
-            <button type="submit" className="submit-btn">
-              Submit Request
-            </button>
+            <button type="submit">Submit Request</button>
           </form>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
