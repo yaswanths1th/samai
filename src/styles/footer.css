@@ -1,38 +1,47 @@
+/* =========================
+   FOOTER (COMPACT + CLEAN)
+========================= */
+
 .site-footer {
   background: #0b0f19;
   color: #cbd5e1;
-  padding: 64px 24px 24px;
+  padding: 40px 24px 18px;   /* ⬅ reduced */
   font-family: "Inter", system-ui, sans-serif;
 }
 
+/* GRID */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 28px;               /* ⬅ tighter */
 }
 
+/* HEADINGS */
 .footer-column h4 {
   color: #ffffff;
-  font-size: 16px;
-  margin-bottom: 16px;
+  font-size: 15px;
+  margin-bottom: 10px;     /* ⬅ reduced */
+  font-weight: 600;
 }
 
+/* BRAND */
 .footer-logo {
-  font-size: 22px;
+  font-size: 20px;         /* ⬅ slightly smaller */
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .footer-desc {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13.5px;
+  line-height: 1.55;
   color: #94a3b8;
-  max-width: 280px;
+  max-width: 260px;
 }
 
+/* LISTS */
 .footer-column ul {
   list-style: none;
   padding: 0;
@@ -40,42 +49,57 @@
 }
 
 .footer-column ul li {
-  margin-bottom: 10px;
+  margin-bottom: 6px;      /* ⬅ tighter */
 }
 
+/* LINKS */
 .footer-column a {
   color: #cbd5e1;
   text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s ease;
+  font-size: 13.5px;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .footer-column a:hover {
-  color: #38bdf8;
+  color: var(--blue-400);
+  transform: translateX(4px);
 }
 
+/* SOCIAL */
 .footer-socials {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;                /* ⬅ reduced */
 }
 
+/* BOTTOM BAR */
 .footer-bottom {
-  margin-top: 48px;
-  padding-top: 20px;
+  margin-top: 28px;        /* ⬅ reduced */
+  padding-top: 14px;
   border-top: 1px solid #1e293b;
   text-align: center;
-  font-size: 13px;
+  font-size: 12.5px;
   color: #64748b;
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
 @media (max-width: 600px) {
   .site-footer {
-    padding: 48px 20px 20px;
+    padding: 32px 20px 16px;
   }
 
   .footer-container {
-    gap: 32px;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }

@@ -9,7 +9,7 @@
   --border-light: #e5e7eb;
 
   /* Typography */
-  --font-main: "Lato", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-main: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Spacing */
   --section-padding: 80px;

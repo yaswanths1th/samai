@@ -1,18 +1,19 @@
 /* =========================
-   NAVBAR
+   NAVBAR (FINAL)
 ========================= */
 
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 72px;
   padding: 0 40px;
 
-  background: rgba(248,250,252,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  background: rgba(248, 250, 252, 0.95);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
 
   display: flex;
   align-items: center;
@@ -39,7 +40,7 @@
 }
 
 .brand-icon {
-  height: 32px;          /* key for 512x512 icon */
+  height: 32px;
   width: auto;
   object-fit: contain;
   border-radius: 6px;
@@ -48,11 +49,14 @@
 .brand-text {
   font-size: 20px;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--slate-900);
   letter-spacing: 0.2px;
 }
 
-/* NAV LINKS */
+/* =========================
+   NAV LINKS
+========================= */
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -60,15 +64,31 @@
 }
 
 .nav-links a {
-  text-decoration: none;
+  position: relative;
   font-size: 14px;
   font-weight: 600;
-  color: #1e293b;
-  transition: color 0.2s ease;
+  color: var(--slate-700);
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--blue-500);
+  transition: width 0.25s var(--ease);
 }
 
 .nav-links a:hover {
-  color: #2563eb;
+  color: var(--blue-500);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 /* =========================
@@ -85,22 +105,19 @@
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
-  color: #1e293b;
+  color: var(--slate-700);
 }
 
 .nav-auth:hover {
-  color: #2563eb;
+  color: var(--blue-500);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #2563eb, #1e293b);
-  color: #ffffff;
+/* NAVBAR BUTTON (scoped, not global) */
+.navbar .btn-primary {
   padding: 10px 18px;
-  border-radius: 10px;
   font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 10px 28px rgba(37,99,235,0.35);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
 }
 
 /* =========================
@@ -124,7 +141,7 @@
     background: #ffffff;
     flex-direction: column;
     display: none;
-    border-top: 1px solid rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
 
   .nav-links.open {
@@ -133,7 +150,7 @@
 
   .nav-links li {
     padding: 14px 40px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .menu-toggle {
