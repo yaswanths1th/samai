@@ -1,9 +1,64 @@
 import "./industryDomains.css";
 
+const DOMAINS = [
+  {
+    title: "Enterprise Operations",
+    subtitle: "Core operational processes with governance and control",
+    points: [
+      "Finance operations and internal approvals",
+      "Compliance workflows with audit trails",
+      "Cross-functional operational coordination",
+    ],
+    image: "/images/enterpriseoperations.png",
+  },
+  {
+    title: "Talent & Workforce Processes",
+    subtitle: "Structured people processes across the employee lifecycle",
+    points: [
+      "Hiring pipelines and onboarding workflows",
+      "Workforce analytics and performance processes",
+      "Role-based access and policy-driven approvals",
+    ],
+    image: "/images/talent.png",
+  },
+  {
+    title: "Sales & Customer Operations",
+    subtitle: "Customer-facing processes with clarity and insight",
+    points: [
+      "Lead-to-order and deal approval workflows",
+      "Customer communication and service coordination",
+      "CRM process intelligence and visibility",
+    ],
+    image: "/images/sales-and-customer.png",
+  },
+  {
+    title: "IT & Service Management",
+    subtitle: "Reliable IT operations with automation and traceability",
+    points: [
+      "Incident and ticket management workflows",
+      "Change and release management processes",
+      "Knowledge and access management",
+    ],
+    image: "/images/it-and-service.png",
+  },
+
+{
+    title: "Supply Chain & Operations",
+    subtitle: "Operational efficiency across vendors and supply networks",
+    points: [
+      "Procurement and purchase approval workflows",
+      "Vendor onboarding and management processes",
+      "Operations monitoring and exception handling",
+    ],
+    image: "/images/supply.png",
+  },
+
+
+];
+
 export default function IndustryDomains() {
   return (
     <main className="industry-page">
-
       {/* ================= HERO ================= */}
       <section className="industry-hero">
         <h1>Built for every business domain</h1>
@@ -14,68 +69,27 @@ export default function IndustryDomains() {
       </section>
 
       {/* ================= DOMAINS ================= */}
-      <section className="industry-grid">
+      <section className="industry-sections">
+        {DOMAINS.map((d, i) => (
+          <section
+            key={d.title}
+            className={`industry-section ${i % 2 !== 0 ? "reverse" : ""}`}
+          >
+            <div className="industry-text">
+              <h3>{d.title}</h3>
+              <p className="industry-subtitle">{d.subtitle}</p>
+              <ul>
+                {d.points.map((p) => (
+                  <li key={p}>{p}</li>
+                ))}
+              </ul>
+            </div>
 
-        <div className="industry-card">
-          <h3>Enterprise Operations</h3>
-          <p className="industry-subtitle">
-            Core operational processes with governance and control
-          </p>
-          <ul>
-            <li>Finance operations and internal approvals</li>
-            <li>Compliance workflows with audit trails</li>
-            <li>Cross-functional operational coordination</li>
-          </ul>
-        </div>
-
-        <div className="industry-card">
-          <h3>Talent & Workforce Processes</h3>
-          <p className="industry-subtitle">
-            Structured people processes across the employee lifecycle
-          </p>
-          <ul>
-            <li>Hiring pipelines and onboarding workflows</li>
-            <li>Workforce analytics and performance processes</li>
-            <li>Role-based access and policy-driven approvals</li>
-          </ul>
-        </div>
-
-        <div className="industry-card">
-          <h3>Sales & Customer Operations</h3>
-          <p className="industry-subtitle">
-            Customer-facing processes with clarity and insight
-          </p>
-          <ul>
-            <li>Lead-to-order and deal approval workflows</li>
-            <li>Customer communication and service coordination</li>
-            <li>CRM process intelligence and visibility</li>
-          </ul>
-        </div>
-
-        <div className="industry-card">
-          <h3>IT & Service Management</h3>
-          <p className="industry-subtitle">
-            Reliable IT operations with automation and traceability
-          </p>
-          <ul>
-            <li>Incident and ticket management workflows</li>
-            <li>Change and release management processes</li>
-            <li>Knowledge and access management</li>
-          </ul>
-        </div>
-
-        <div className="industry-card">
-          <h3>Supply Chain & Operations</h3>
-          <p className="industry-subtitle">
-            Operational efficiency across vendors and supply networks
-          </p>
-          <ul>
-            <li>Procurement and purchase approval workflows</li>
-            <li>Vendor onboarding and management processes</li>
-            <li>Operations monitoring and exception handling</li>
-          </ul>
-        </div>
-
+            <div className="industry-image">
+              <img src={d.image} alt={d.title} />
+            </div>
+          </section>
+        ))}
       </section>
 
       {/* ================= FOOTER VALUE ================= */}
@@ -88,7 +102,6 @@ export default function IndustryDomains() {
           fragmentation.
         </p>
       </section>
-
     </main>
   );
 }
