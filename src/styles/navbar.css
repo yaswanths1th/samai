@@ -1,0 +1,148 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.9),
+    rgba(248,250,252,0.95)
+  );
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+/* LEFT */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+/* NAV LINKS */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 26px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* CONNECT */
+.connect-wrapper {
+  position: relative;
+}
+
+.connect-btn {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--secondary);
+}
+
+.connect-btn:hover {
+  color: var(--primary);
+}
+
+.connect-dropdown {
+  position: absolute;
+  top: 36px;
+  right: 0;
+
+  background: #ffffff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  min-width: 220px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.connect-dropdown p {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+/* AUTH */
+.nav-auth {
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.nav-auth:hover {
+  color: var(--primary);
+}
+
+/* MOBILE */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    flex-direction: column;
+    display: none;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 14px 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}

@@ -1,0 +1,24 @@
+:root {
+  /* Colors */
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --secondary: #0f172a;
+  --text-muted: #64748b;
+  --bg-light: #f8fafc;
+  --bg-white: #ffffff;
+  --border-light: #e5e7eb;
+
+  /* Typography */
+  --font-main: "Lato", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing */
+  --section-padding: 80px;
+  --container-width: 1200px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  /* Shadow */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
