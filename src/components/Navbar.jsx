@@ -5,6 +5,7 @@ import logoIcon from "../assets/android-chrome-512x512.png";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const closeMenu = () => setOpen(false);
 
   return (
     <header className="navbar">
@@ -20,11 +21,11 @@ export default function Navbar() {
         </Link>
 
         <ul className={`nav-links ${open ? "open" : ""}`}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/product">Product</Link></li>
-          <li><Link to="/industry-domains">Industry Domains</Link></li>
-          <li><Link to="/pricing">Pricing</Link></li>
-          <li><Link to="/connect">Let’s Connect</Link></li>
+          <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+          <li><Link to="/product" onClick={closeMenu}>Product</Link></li>
+          <li><Link to="/industry-domains" onClick={closeMenu}>Industry Domains</Link></li>
+          <li><Link to="/pricing" onClick={closeMenu}>Pricing</Link></li>
+          <li><Link to="/connect" onClick={closeMenu}>Let’s Connect</Link></li>
         </ul>
       </div>
 
