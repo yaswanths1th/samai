@@ -1,7 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import Toast from "../components/Toast";
-import DemoReview from "../components/DemoReview";
-import "../styles/demo.css";
+import { useState } from "react";
+import "./scheduleDemo.css";
 
 const TIME_SLOTS = [
   "09:00 AM",
@@ -14,16 +12,6 @@ const TIME_SLOTS = [
   "05:00 PM",
 ];
 
-// helpers
-const to24h = (slot) => {
-  // "09:00 AM" -> 9, "02:00 PM" -> 14
-  const [time, mer] = slot.split(" ");
-  let [h] = time.split(":").map(Number);
-  if (mer === "PM" && h !== 12) h += 12;
-  if (mer === "AM" && h === 12) h = 0;
-  return h;
-};
-
 export default function ScheduleDemo() {
   const [form, setForm] = useState({
     name: "",
@@ -35,187 +23,160 @@ export default function ScheduleDemo() {
     message: "",
   });
 
-  const [showReview, setShowReview] = useState(false);
-  const [showToast, setShowToast] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [error, setError] = useState("");
 
-  // today (yyyy-mm-dd) for min date
-  const todayStr = useMemo(() => {
-    const d = new Date();
-    d.setHours(0, 0, 0, 0);
-    return d.toISOString().slice(0, 10);
-  }, []);
-
-  // Reset slot when date changes
-  useEffect(() => {
-    setForm((f) => ({ ...f, slot: "" }));
-  }, [form.date]);
-
-  const handleChange = (e) =>
+  const handleChange = (e) => {
+    setError("");
     setForm({ ...form, [e.target.name]: e.target.value });
-
-  // Determine disabled slots (same-day past times)
-  const disabledSlots = useMemo(() => {
-    if (!form.date) return new Set();
-    const selected = new Date(form.date);
-    const now = new Date();
-    const sameDay =
-      selected.toDateString() === now.toDateString();
-
-    if (!sameDay) return new Set();
-
-    const currentHour = now.getHours();
-    return new Set(
-      TIME_SLOTS.filter((s) => to24h(s) <= currentHour)
-    );
-  }, [form.date]);
-
-  const validateForReview = () => {
-    const e = {};
-    if (!form.name) e.name = "Name is required";
-    if (!form.email) e.email = "Email is required";
-    if (!form.company) e.company = "Company is required";
-    if (!form.date) e.date = "Please select a date";
-    if (!form.slot) e.slot = "Please select a time slot";
-    setErrors(e);
-    return Object.keys(e).length === 0;
   };
 
-  const confirmSend = () => {
-    const subject = `Demo Request from ${form.name} (${form.company})`;
-    const body = `
+  const isValid =
+    form.name &&
+    form.email &&
+    form.company &&
+    form.date &&
+    form.slot;
+
+  const subject = `Demo Request – ${form.company || "Samai"}`;
+
+  const body = `
 Name: ${form.name}
 Email: ${form.email}
 Company: ${form.company}
-Role: ${form.role}
-Date: ${form.date}
-Time Slot: ${form.slot}
+Role: ${form.role || "N/A"}
+
+Preferred Date: ${form.date}
+Preferred Time: ${form.slot}
 
 Use Case:
-${form.message}
+${form.message || "Not specified"}
 `;
 
-    window.location.href = `mailto:info@samai.ai?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-
-    setShowReview(false);
-    setShowToast(true);
-    setTimeout(() => setShowToast(false), 4000);
-  };
+  const mailtoLink = `mailto:info@samai.ai?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
 
   return (
-    <main className="demo-page">
-      <h1>Schedule a Demo</h1>
-      <p>Choose a date and an available time slot. We’ll confirm shortly.</p>
+    <div className="demo-wrapper">
+      {/* Header */}
+      <section className="demo-hero">
+        <h1>Schedule a Demo</h1>
+        <p>
+          See how Samai helps organizations design, orchestrate, and optimize
+          business processes.
+        </p>
+      </section>
 
-      <form className="demo-form" onSubmit={(e) => e.preventDefault()}>
-        <input
-          name="name"
-          placeholder="Full Name"
-          value={form.name}
-          onChange={handleChange}
-        />
-        {errors.name && <span className="err">{errors.name}</span>}
+      {/* Form */}
+      <section className="demo-card">
+        {error && <div className="demo-error">{error}</div>}
 
-        <input
-          name="email"
-          type="email"
-          placeholder="Work Email"
-          value={form.email}
-          onChange={handleChange}
-        />
-        {errors.email && <span className="err">{errors.email}</span>}
+        <div className="form-grid">
+          <div className="form-group">
+            <label>Full Name *</label>
+            <input
+              name="name"
+              placeholder="John Doe"
+              value={form.name}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="company"
-          placeholder="Company Name"
-          value={form.company}
-          onChange={handleChange}
-        />
-        {errors.company && <span className="err">{errors.company}</span>}
+          <div className="form-group">
+            <label>Work Email *</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="john@company.com"
+              value={form.email}
+              onChange={handleChange}
+            />
+          </div>
 
-        <input
-          name="role"
-          placeholder="Role / Designation"
-          value={form.role}
-          onChange={handleChange}
-        />
+          <div className="form-group">
+            <label>Company *</label>
+            <input
+              name="company"
+              placeholder="Company name"
+              value={form.company}
+              onChange={handleChange}
+            />
+          </div>
 
-        {/* Date */}
-        <div className="date-section">
-          <label>Select a date</label>
+          <div className="form-group">
+            <label>Role</label>
+            <input
+              name="role"
+              placeholder="Your role"
+              value={form.role}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label>Preferred Date *</label>
           <input
             type="date"
             name="date"
-            min={todayStr}
             value={form.date}
             onChange={handleChange}
           />
-          {errors.date && <span className="err">{errors.date}</span>}
         </div>
 
-        {/* Slots */}
-        <div className="slots-section">
-          <label>Select a time slot</label>
-          <div className="slots-grid">
-            {TIME_SLOTS.map((slot) => {
-              const disabled = disabledSlots.has(slot);
-              const active = form.slot === slot;
-              return (
-                <button
-                  type="button"
-                  key={slot}
-                  className={`slot-btn ${active ? "active" : ""}`}
-                  disabled={disabled}
-                  onClick={() =>
-                    !disabled && setForm({ ...form, slot })
-                  }
-                  title={
-                    disabled
-                      ? "This slot has passed"
-                      : "Select slot"
-                  }
-                >
-                  {slot}
-                </button>
-              );
-            })}
+        <div className="form-group">
+          <label>Preferred Time *</label>
+          <div className="slot-grid">
+            {TIME_SLOTS.map((slot) => (
+              <button
+                key={slot}
+                type="button"
+                className={`slot-btn ${
+                  form.slot === slot ? "active" : ""
+                }`}
+                onClick={() => setForm({ ...form, slot })}
+              >
+                {slot}
+              </button>
+            ))}
           </div>
-          {errors.slot && <span className="err">{errors.slot}</span>}
         </div>
 
-        <textarea
-          name="message"
-          placeholder="Briefly describe your use case"
-          rows="4"
-          value={form.message}
-          onChange={handleChange}
-        />
+        <div className="form-group">
+          <label>Use Case</label>
+          <textarea
+            name="message"
+            placeholder="Briefly describe your requirements"
+            rows="4"
+            value={form.message}
+            onChange={handleChange}
+          />
+        </div>
 
-        <button
-          className="btn-primary"
-          type="button"
-          onClick={() => {
-            if (validateForReview()) setShowReview(true);
-          }}
-        >
-          Review & Send
-        </button>
-      </form>
+        {/* THIS IS THE KEY CHANGE */}
+        {isValid ? (
+          <a
+            href={mailtoLink}
+            className="submit-btn"
+          >
+            Request Demo
+          </a>
+        ) : (
+          <button
+            className="submit-btn disabled"
+            onClick={() =>
+              setError("Please fill all required fields")
+            }
+          >
+            Request Demo
+          </button>
+        )}
 
-      {showReview && (
-        <DemoReview
-          data={form}
-          onCancel={() => setShowReview(false)}
-          onConfirm={confirmSend}
-        />
-      )}
-
-      <Toast
-        show={showToast}
-        message="Demo request email opened successfully. Our team will contact you shortly."
-      />
-    </main>
+        <p className="demo-note">
+          This will open your email application. Please click{" "}
+          <strong>Send</strong> to complete the request.
+        </p>
+      </section>
+    </div>
   );
 }

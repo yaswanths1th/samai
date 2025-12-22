@@ -3,142 +3,142 @@ import "../styles/home.css";
 
 export default function Home() {
   return (
-    <>
-      <main className="home">
-        {/* Hero */}
-        <section className="hero-section">
-          <div className="hero-content">
-            <h1>
-              Design, automate, and orchestrate <br />
-              <span>business processes</span> with clarity
-            </h1>
+    <main className="home">
 
-            <p>
-              Samai is a context-aware business process management platform that
-              helps organizations digitize workflows, coordinate decisions, and
-              gain real-time operational intelligence.
-            </p>
+      {/* ================= HERO ================= */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <span className="hero-eyebrow">Business Process Intelligence</span>
 
-            <div className="hero-actions">
-              <Link to="/schedule-demo" className="btn-primary">
-                Schedule a Demo
-              </Link>
+          <h1>
+            Design, automate, and orchestrate <br />
+            <span>business processes</span> with clarity
+          </h1>
 
-              <Link to="/product" className="btn-secondary">
-                Explore Product
-              </Link>
-            </div>
+          <p className="hero-subtitle">
+            Samai is a modern platform that brings workflow modeling,
+            orchestration, AI-driven context, and real-time analytics together —
+            so organizations can execute processes with confidence.
+          </p>
+
+          <div className="hero-actions">
+            <Link to="/schedule-demo" className="btn-primary">
+              Schedule a Demo
+            </Link>
+
+            <Link to="/product" className="btn-secondary">
+              Explore Product
+            </Link>
           </div>
-        </section>
+        </div>
 
-        {/* Problems */}
-        <section className="problems-section">
-          <h2>Why businesses struggle with processes</h2>
-          <ul className="problem-list">
-            <li>Manual approvals slow down operations</li>
-            <li>Disconnected systems create data silos</li>
-            <li>No visibility into who is doing what and why</li>
-            <li>Decisions are made without process context</li>
-          </ul>
-        </section>
+        {/* ================= VALUE STRIP ================= */}
+        <div className="value-strip">
+          <div className="value-item">
+            <strong>Reduce Cycle Time</strong>
+            <span>Automate approvals and decisions</span>
+          </div>
+          <div className="value-item">
+            <strong>Improve Visibility</strong>
+            <span>Know who did what and why</span>
+          </div>
+          <div className="value-item">
+            <strong>Scale Reliably</strong>
+            <span>Processes that grow with you</span>
+          </div>
+        </div>
 
-        {/* Capabilities */}
-        <section className="capabilities-section">
+        {/* ================= WHAT SAMAI ENABLES ================= */}
+        <div className="capabilities-wrapper">
           <h2>What Samai enables</h2>
+          <p className="section-subtitle">
+            From design to execution to insight — Samai supports the full
+            lifecycle of business processes.
+          </p>
 
-          {/* AUTO SCROLL CONTAINER */}
           <div className="capability-grid auto-scroll">
-            {/* original cards */}
-            <Capability title="Digitalise Business Functions" />
-            <Capability title="Communicate with Context" />
-            <Capability title="Orchestrate Business Processes" />
-            <Capability title="Analyze, Predict, and Act" />
+            <Capability
+              title="Process Modeling"
+              desc="Design workflows using structured steps, roles, approvals, and exception paths."
+            />
+            <Capability
+              title="Context-Aware Intelligence"
+              desc="AI understands the current process state, role, and data before responding."
+            />
+            <Capability
+              title="Human & System Orchestration"
+              desc="Coordinate people, systems, and integrations in a single execution flow."
+            />
+            <Capability
+              title="Operational Analytics"
+              desc="Track performance, bottlenecks, SLAs, and continuous improvement metrics."
+            />
 
-            {/* duplicate cards for infinite scroll */}
-            <Capability title="Digitalise Business Functions" />
-            <Capability title="Communicate with Context" />
-            <Capability title="Orchestrate Business Processes" />
-            <Capability title="Analyze, Predict, and Act" />
+            {/* duplicate for infinite scroll */}
+            <Capability
+              title="Process Modeling"
+              desc="Design workflows using structured steps, roles, approvals, and exception paths."
+            />
+            <Capability
+              title="Context-Aware Intelligence"
+              desc="AI understands the current process state, role, and data before responding."
+            />
+            <Capability
+              title="Human & System Orchestration"
+              desc="Coordinate people, systems, and integrations in a single execution flow."
+            />
+            <Capability
+              title="Operational Analytics"
+              desc="Track performance, bottlenecks, SLAs, and continuous improvement metrics."
+            />
           </div>
-        </section>
-      </main>
-
-      {/* ================= FOOTER ================= */}
-      <footer className="site-footer">
-        <div className="footer-container">
-          
-          {/* Brand */}
-          <div className="footer-column">
-            <h3 className="footer-logo">Samai</h3>
-            <p className="footer-desc">
-              A modern business process modeling platform for clarity,
-              automation, and operational intelligence.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="footer-column">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><Link to="/product">Product</Link></li>
-              <li><Link to="/pricing">Pricing</Link></li>
-              <li><Link to="/schedule-demo">Schedule Demo</Link></li>
-              <li><Link to="/connect">Contact</Link></li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div className="footer-column">
-            <h4>Resources</h4>
-            <ul>
-              <li><Link to="/privacy">Privacy Policy</Link></li>
-              <li><Link to="/terms">Terms & Conditions</Link></li>
-              <li><Link to="/security">Security</Link></li>
-              <li><Link to="/support">Support</Link></li>
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div className="footer-column">
-            <h4>Connect With Us</h4>
-            <div className="footer-socials">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                Instagram
-              </a>
-              <a href="mailto:info@samai.ai">
-                Gmail
-              </a>
-              <a href="https://github.com" target="_blank" rel="noreferrer">
-                GitHub
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                Facebook
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer">
-                Twitter
-              </a>
-            </div>
-          </div>
-
         </div>
+      </section>
 
-        <div className="footer-bottom">
-          © {new Date().getFullYear()} Samai. All rights reserved.
+      {/* ================= PROBLEMS ================= */}
+      <section className="problems-section">
+        <h2>Why businesses struggle with processes</h2>
+
+        <div className="problems-grid">
+          <Problem
+            title="Manual Approvals"
+            desc="Email-based approvals slow execution and increase errors."
+          />
+          <Problem
+            title="Disconnected Systems"
+            desc="Data is scattered across tools with no unified process view."
+          />
+          <Problem
+            title="No Ownership"
+            desc="Teams don’t know who is responsible at each step."
+          />
+          <Problem
+            title="Lack of Insight"
+            desc="Decisions are made without real-time process context."
+          />
         </div>
-      </footer>
-    </>
+      </section>
+
+    </main>
   );
 }
 
-/* Small helper component */
-function Capability({ title }) {
+/* ================= COMPONENTS ================= */
+
+function Capability({ title, desc }) {
   return (
     <div className="capability-card">
       <h3>{title}</h3>
-      <p>
-        Transform manual activities into intelligent, traceable,
-        and automated business workflows.
-      </p>
+      <p>{desc}</p>
+    </div>
+  );
+}
+
+function Problem({ title, desc }) {
+  return (
+    <div className="problem-card">
+      <h4>{title}</h4>
+      <p>{desc}</p>
     </div>
   );
 }

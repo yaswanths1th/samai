@@ -14,7 +14,7 @@ export default function Navbar() {
         <ul className={`nav-links ${open ? "open" : ""}`}>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/product">Product</Link></li>
-          <li><Link to="/how-it-works">Industry Domains</Link></li>
+          <li><Link to="/industry-domains">Industry Domains</Link></li>
           <li><Link to="/pricing">Pricing</Link></li>
           <li><Link to="/connect">Let's Connect</Link></li>
         </ul>
