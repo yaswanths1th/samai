@@ -4,9 +4,9 @@ const DOMAINS = [
   {
     blockTitle: "Enterprise Operations",
     blockDesc:
-      "Run core operational processes with built-in governance, visibility, and control Enterprise Operations in BPM brings structure and discipline to the most critical, cross-cutting processes of the organization. It ensures that financial controls, compliance obligations, and cross-functional coordination operate as well-governed, auditable workflows—not ad-hoc activities spread across tools.",
+      "Run core operational processes with built-in governance, visibility, and control Enterprise Operations brings structure and discipline to the most critical, cross-cutting processes of the organization. It ensures that financial controls, compliance obligations, and cross-functional coordination operate as well-governed, auditable workflows—not ad-hoc activities spread across tools.",
 
-    title: "What BPM-driven enterprise operations enable",
+    title: "What enterprise operations enable",
     subtitle: "",
     points: [
       "Finance Operations & Internal Approvals Digitize finance workflows such as budget approvals, expense management, procure-to-pay, and reconciliations with defined controls, SLAs, and authorization hierarchies.",
@@ -20,8 +20,8 @@ const DOMAINS = [
   {
     blockTitle: "Talent & Workforce Processes ",
     blockDesc:
-      "Structure people processes across the entire employee lifecycle—with clarity, control, and insight  BPM brings discipline and consistency to how organizations hire, onboard, manage, and develop talent. By structuring workforce processes as governed workflows, HR and business leaders gain visibility, accountability, and data-driven control—from the first candidate interaction to ongoing performance and policy enforcement.",
-    title: "What BPM-driven workforce management enables",
+      "Structure people processes across the entire employee lifecycle—with clarity, control, and insight brings discipline and consistency to how organizations hire, onboard, manage, and develop talent. By structuring workforce processes as governed workflows, HR and business leaders gain visibility, accountability, and data-driven control—from the first candidate interaction to ongoing performance and policy enforcement.",
+    title: "What workforce management enables",
     subtitle: "",
     points: [
       "Hiring Pipelines & Onboarding Workflows Design end-to-end hiring processes—from requisition and screening to offer approvals and onboarding—ensuring consistent experience, faster cycle times, and compliance at every step.",
@@ -35,8 +35,8 @@ const DOMAINS = [
   {
     blockTitle: "Sales & Customer Operations ",
     blockDesc:
-      "Run customer-facing processes with clarity, coordination, and real-time insight BPM brings structure to how organizations sell, serve, and support customers. By modeling sales and service as governed workflows, teams gain end-to-end visibility—from first lead to fulfilled order and ongoing service—ensuring consistency, accountability, and faster outcomes.",
-    title: "What BPM-driven sales & customer operations enable",
+      "Run customer-facing processes with clarity, coordination, and real-time insight brings structure to how organizations sell, serve, and support customers. By modeling sales and service as governed workflows, teams gain end-to-end visibility—from first lead to fulfilled order and ongoing service—ensuring consistency, accountability, and faster outcomes.",
+    title: "What sales & customer operations enable",
     subtitle: "",
     points: [
       "Lead-to-Order & Deal Approval Workflows Standardize the journey from lead capture to deal closure with defined stages, approvals, pricing controls, and SLAs—reducing cycle time and deal risk.",
@@ -50,8 +50,8 @@ const DOMAINS = [
   {
     blockTitle: "IT & Service Management ",
     blockDesc:
-      "Deliver reliable IT operations with automation, traceability, and control BPM brings structure and predictability to IT & Service Management by turning incidents, changes, and requests into governed, end-to-end workflows. With built-in automation and full traceability, IT teams can resolve issues faster, reduce risk, and maintain service quality—even as complexity grows.",
-    title: "What BPM-driven IT & Service Management enables",
+      "Deliver reliable IT operations with automation, traceability, and control brings structure and predictability to IT & Service Management by turning incidents, changes, and requests into governed, end-to-end workflows. With built-in automation and full traceability, IT teams can resolve issues faster, reduce risk, and maintain service quality—even as complexity grows.",
+    title: "What IT & Service Management enables",
     subtitle: "",
     points: [
       "Incident & Ticket Management Workflows Standardize how incidents and service requests are logged, prioritized, routed, escalated, and resolved—ensuring SLAs are met and accountability is clear.",
@@ -65,8 +65,8 @@ const DOMAINS = [
   {
     blockTitle: "Supply Chain & Operations",
     blockDesc:
-      "Drive operational efficiency across vendors, partners, and supply networks In BPM, Supply Chain & Operations are managed as connected, end-to-end processes—from procurement and vendor onboarding to execution monitoring and exception handling. By embedding governance, automation, and visibility into operational workflows, organizations can reduce delays, control risk, and maintain continuity, even in complex supply environments.",
-    title: "What BPM-driven supply chain operations enable",
+      "Drive operational efficiency across vendors, partners, and supply networks , Supply Chain & Operations are managed as connected, end-to-end processes—from procurement and vendor onboarding to execution monitoring and exception handling. By embedding governance, automation, and visibility into operational workflows, organizations can reduce delays, control risk, and maintain continuity, even in complex supply environments.",
+    title: "What  supply chain operations enable",
     subtitle: "",
     points: [
       "Procurement & Purchase Approval Workflows Digitize procure-to-pay processes with defined approval hierarchies, budget controls, and SLAs—ensuring transparency, compliance, and faster turnaround.",
