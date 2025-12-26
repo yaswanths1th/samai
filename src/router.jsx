@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout";
+
 import Home from "./pages/Home";
 import Product from "./pages/Product";
 import HowItWorks from "./pages/HowItWorks";
@@ -11,6 +12,13 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ScheduleDemo from "./pages/ScheduleDemo";
 import Connect from "./pages/Connect";
+
+/* ================= RESOURCES ================= */
+import Resources from "./pages/Resources";
+import Videos from "./pages/resources/Videos";
+import Webinars from "./pages/resources/Webinars";
+import Templates from "./pages/resources/Templates";
+import CaseStudies from "./pages/resources/CaseStudies";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +62,46 @@ export const router = createBrowserRouter([
     ),
   },
   {
+    path: "/resources",
+    element: (
+      <Layout>
+        <Resources />
+      </Layout>
+    ),
+  },
+  {
+    path: "/resources/videos",
+    element: (
+      <Layout>
+        <Videos />
+      </Layout>
+    ),
+  },
+  {
+    path: "/resources/webinars",
+    element: (
+      <Layout>
+        <Webinars />
+      </Layout>
+    ),
+  },
+  {
+    path: "/resources/templates",
+    element: (
+      <Layout>
+        <Templates />
+      </Layout>
+    ),
+  },
+  {
+    path: "/resources/case-studies",
+    element: (
+      <Layout>
+        <CaseStudies />
+      </Layout>
+    ),
+  },
+  {
     path: "/about",
     element: (
       <Layout>
@@ -86,20 +134,19 @@ export const router = createBrowserRouter([
     ),
   },
   {
-  path: "/schedule-demo",
-  element: (
-    <Layout>
-      <ScheduleDemo />
-    </Layout>
-  ),
+    path: "/schedule-demo",
+    element: (
+      <Layout>
+        <ScheduleDemo />
+      </Layout>
+    ),
   },
   {
-  path: "/connect",
-  element: (
-    <Layout>
-      <Connect />
-    </Layout>
-  ),
-},
-
+    path: "/connect",
+    element: (
+      <Layout>
+        <Connect />
+      </Layout>
+    ),
+  },
 ]);

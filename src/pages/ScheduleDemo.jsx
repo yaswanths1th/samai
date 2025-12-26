@@ -1,182 +1,185 @@
-import { useState } from "react";
-import "./scheduleDemo.css";
-
-const TIME_SLOTS = [
-  "09:00 AM",
-  "10:00 AM",
-  "11:00 AM",
-  "12:00 PM",
-  "02:00 PM",
-  "03:00 PM",
-  "04:00 PM",
-  "05:00 PM",
-];
+import React, { useState } from "react";
+import "../styles/global.css";
 
 export default function ScheduleDemo() {
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
-    role: "",
+    phone: "",
     date: "",
-    slot: "",
+    time: "",
     message: "",
   });
 
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  const times = [
+    "09:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "01:00 PM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+  ];
 
   const handleChange = (e) => {
-    setError("");
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const isValid =
-    form.name &&
-    form.email &&
-    form.company &&
-    form.date &&
-    form.slot;
+  const validate = () => {
+    const e = {};
+    if (!formData.name) e.name = "Full name is required";
+    if (!formData.email) e.email = "Email is required";
+    if (!formData.company) e.company = "Company name is required";
+    if (!formData.phone) e.phone = "Phone number is required";
+    if (!formData.date) e.date = "Please select a date";
+    if (!formData.time) e.time = "Please select a time";
+    return e;
+  };
 
-  const subject = `Demo Request – ${form.company || "Samai"}`;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const v = validate();
+    if (Object.keys(v).length === 0) {
+      setSubmitted(true);
+    } else {
+      setErrors(v);
+    }
+  };
 
-  const body = `
-Name: ${form.name}
-Email: ${form.email}
-Company: ${form.company}
-Role: ${form.role || "N/A"}
-
-Preferred Date: ${form.date}
-Preferred Time: ${form.slot}
-
-Use Case:
-${form.message || "Not specified"}
-`;
-
-  const mailtoLink = `mailto:info@samai.ai?subject=${encodeURIComponent(
-    subject
-  )}&body=${encodeURIComponent(body)}`;
+  if (submitted) {
+    return (
+      <div className="success-message">
+        <h2>Demo Confirmed</h2>
+        <p>
+          Thank you for scheduling a demo. Our team will contact you shortly with
+          confirmation details.
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <div className="demo-wrapper">
-      {/* Header */}
-      <section className="demo-hero">
-        <h1>Schedule a Demo</h1>
+    <main className="demo-page">
+      {/* HERO */}
+      <section className="hero">
+        <span className="eyebrow">PRODUCT DEMO</span>
+        <h1>See Our Platform in Action</h1>
         <p>
-          See how Samai helps organizations design, orchestrate, and optimize
-          business processes.
+          Schedule a personalized walkthrough and discover how teams streamline
+          operations with clarity and control.
         </p>
       </section>
 
-      {/* Form */}
-      <section className="demo-card">
-        {error && <div className="demo-error">{error}</div>}
+      {/* FORM */}
+      <section className="form-section">
+        <form className="demo-form" onSubmit={handleSubmit} noValidate>
 
-        <div className="form-grid">
-          <div className="form-group">
-            <label>Full Name *</label>
-            <input
-              name="name"
-              placeholder="John Doe"
-              value={form.name}
-              onChange={handleChange}
-            />
+          {/* Row 1 */}
+          <div className="form-row two">
+            <div className="form-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="John Doe"
+                value={formData.name}
+                onChange={handleChange}
+              />
+              {errors.name && <span className="error">{errors.name}</span>}
+            </div>
+
+            <div className="form-group">
+              <label>Email Address</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="john@company.com"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && <span className="error">{errors.email}</span>}
+            </div>
           </div>
 
-          <div className="form-group">
-            <label>Work Email *</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="john@company.com"
-              value={form.email}
-              onChange={handleChange}
-            />
+          {/* Row 2 */}
+          <div className="form-row two">
+            <div className="form-group">
+              <label>Company Name</label>
+              <input
+                type="text"
+                name="company"
+                placeholder="Your Company Inc."
+                value={formData.company}
+                onChange={handleChange}
+              />
+              {errors.company && <span className="error">{errors.company}</span>}
+            </div>
+
+            <div className="form-group">
+              <label>Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+91 98765 43210"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+              {errors.phone && <span className="error">{errors.phone}</span>}
+            </div>
           </div>
 
-          <div className="form-group">
-            <label>Company *</label>
-            <input
-              name="company"
-              placeholder="Company name"
-              value={form.company}
-              onChange={handleChange}
-            />
-          </div>
+          {/* Row 3 (Date + Time ONLY) */}
+          <div className="form-row two">
+            <div className="form-group">
+              <label>Date</label>
+              <input
+                type="date"
+                name="date"
+                value={formData.date}
+                onChange={handleChange}
+              />
+              {errors.date && <span className="error">{errors.date}</span>}
+            </div>
 
-          <div className="form-group">
-            <label>Role</label>
-            <input
-              name="role"
-              placeholder="Your role"
-              value={form.role}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label>Preferred Date *</label>
-          <input
-            type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Preferred Time *</label>
-          <div className="slot-grid">
-            {TIME_SLOTS.map((slot) => (
-              <button
-                key={slot}
-                type="button"
-                className={`slot-btn ${
-                  form.slot === slot ? "active" : ""
-                }`}
-                onClick={() => setForm({ ...form, slot })}
+            <div className="form-group">
+              <label>Time</label>
+              <select
+                name="time"
+                value={formData.time}
+                onChange={handleChange}
               >
-                {slot}
-              </button>
-            ))}
+                <option value="">Select time</option>
+                {times.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+              {errors.time && <span className="error">{errors.time}</span>}
+            </div>
           </div>
-        </div>
 
-        <div className="form-group">
-          <label>Use Case</label>
-          <textarea
-            name="message"
-            placeholder="Briefly describe your requirements"
-            rows="4"
-            value={form.message}
-            onChange={handleChange}
-          />
-        </div>
+          {/* Message */}
+          <div className="form-group">
+            <label>Message (Optional)</label>
+            <textarea
+              name="message"
+              placeholder="Tell us what you'd like to focus on during the demo"
+              rows="4"
+              value={formData.message}
+              onChange={handleChange}
+            />
+          </div>
 
-        {/* THIS IS THE KEY CHANGE */}
-        {isValid ? (
-          <a
-            href={mailtoLink}
-            className="submit-btn"
-          >
-            Request Demo
-          </a>
-        ) : (
-          <button
-            className="submit-btn disabled"
-            onClick={() =>
-              setError("Please fill all required fields")
-            }
-          >
-            Request Demo
+          <button type="submit" className="cta-button">
+            Schedule Demo
           </button>
-        )}
-
-        <p className="demo-note">
-          This will open your email application. Please click{" "}
-          <strong>Send</strong> to complete the request.
-        </p>
+        </form>
       </section>
-    </div>
+    </main>
   );
 }

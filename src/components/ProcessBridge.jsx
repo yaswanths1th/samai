@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import "./processBridge.css";
-
+import "../styles/global.css"
 export default function ProcessBridge() {
   return (
     <section className="process-bridge">
@@ -35,14 +34,15 @@ export default function ProcessBridge() {
           <strong>Real-time Instrumentation</strong>, Samai provides a shared
           execution foundation where processes stay visible, governed, and
           adaptable.
-        </motion.h3>
-
-        {/* Description */}
-        <p className="bridge-desc">
           Designing processes is only the beginning. Samai ensures that every
           model remains executable, collaborative, and adaptable — even as
           complexity grows. Business and IT stay aligned, decisions remain
           transparent, and execution flows without friction.
+        </motion.h3>
+
+        {/* Description */}
+        <p className="bridge-desc">
+          
         </p>
 
         {/* Pillars */}

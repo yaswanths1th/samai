@@ -1,3 +1,4 @@
+import "../styles/global.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -5,7 +6,12 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <div className="page-content">{children}</div>
+
+      {/* Main content wrapper */}
+      <main className="page-content">
+        {children}
+      </main>
+
       <Footer />
     </>
   );

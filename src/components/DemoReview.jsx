@@ -1,4 +1,4 @@
-import "../styles/demo-review.css";
+import "../styles/global.css"
 
 export default function DemoReview({ data, onConfirm, onCancel }) {
   return (

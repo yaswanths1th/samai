@@ -1,5 +1,5 @@
 import { capabilities } from "../data/capabilities";
-import FeatureCard from "./FeatureCard";
+import "../styles/global.css"
 
 export default function Capabilities() {
   return (

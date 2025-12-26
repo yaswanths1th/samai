@@ -1,9 +1,10 @@
 import { useState } from "react";
-import "./login.css";
+import "../styles/global.css";
 
 export default function Login() {
   const [form, setForm] = useState({
     email: "",
+    
     password: "",
   });
 
@@ -33,19 +34,22 @@ export default function Login() {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-card">
-        <h1>Welcome back</h1>
-        <p className="subtitle">
-          Sign in to continue to <strong>Samai</strong>
-        </p>
+    <main className="login-page">
+      <section className="login-card">
+        <header className="login-header">
+          <h1>Welcome back</h1>
+          <p className="subtitle">
+            Sign in to continue to <strong>Samai</strong>
+          </p>
+        </header>
 
         {error && <div className="error-box">{error}</div>}
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
           <div className="form-group">
-            <label>Email address</label>
+            <label htmlFor="email">Email address</label>
             <input
+              id="email"
               type="email"
               name="email"
               placeholder="you@company.com"
@@ -56,8 +60,9 @@ export default function Login() {
           </div>
 
           <div className="form-group">
-            <label>Password</label>
+            <label htmlFor="password">Password</label>
             <input
+              id="password"
               type="password"
               name="password"
               placeholder="••••••••"
@@ -76,11 +81,11 @@ export default function Login() {
           </button>
         </form>
 
-        <div className="login-footer">
-          <span>Forgot password?</span>
+        <footer className="login-footer">
+          <span className="muted">Forgot password?</span>
           <span className="link">Contact support</span>
-        </div>
-      </div>
-    </div>
+        </footer>
+      </section>
+    </main>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./capabilities.css";
+import "../styles/global.css"
 
 const CAPABILITIES = [
   {
@@ -69,11 +69,8 @@ export default function CapabilitiesSection() {
 
   return (
     <section className="capabilities-section">
-      <h2>What Samai enables</h2>
-      <p className="section-subtitle">
-        From design to execution to insight — Samai supports the full lifecycle
-        of business processes.
-      </p>
+      <h2>Built for every business domain</h2>
+     <br></br>
 
       {/* Pills */}
       <div className="capability-tabs">

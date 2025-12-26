@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "../styles/home.css";
+
 import {
   FiSettings,
   FiMessageSquare,
@@ -11,103 +11,103 @@ import CapabilitiesSection from "../components/CapabilitiesSection";
 import FeatureShowcase from "../components/FeatureShowcase";
 import ProcessBridge from "../components/ProcessBridge";
 
+import "../styles/global.css";
+
 export default function Home() {
   return (
     <main className="home">
+
       {/* ================= HERO ================= */}
-      <section className="hero-section reveal">
-        <div className="hero-content">
-          <span className="hero-eyebrow reveal delay-1">
-            Business Process Intelligence
-          </span>
+      <section className="hero-section">
+        <div className="hero-grid">
 
-          <h1 className="reveal delay-2">
-            Design, automate, and orchestrate <br />
-            <span>business processes</span> with clarity
-          </h1>
+          {/* LEFT */}
+          <div className="hero-content">
+            <span className="hero-eyebrow">
+              Business Process Intelligence
+            </span>
 
-          <p className="hero-subtitle reveal delay-3">
-            Samai is a modern platform that brings workflow modeling,
-            orchestration, AI-driven context, and real-time analytics together —
-            so organizations can execute processes with confidence.
-          </p>
+            <h1>
+              Empower Your <br />
+              <span>Business </span> to break Barriers
+            </h1>
 
-          <div className="hero-actions reveal delay-4">
-            <Link to="/schedule-demo" className="btn-primary">
-              Schedule a Demo
-            </Link>
+            <p className="hero-subtitle">
+              Unleash your full potential to innovate, adapt, and transform confidently and at scale
+            </p>
 
-            <Link to="/product" className="btn-secondary">
-              Explore Product
-            </Link>
+            <div className="hero-actions">
+              <Link to="/schedule-demo" className="btn btn-primary">
+                Schedule a demo
+              </Link>
+              <Link to="/product" className="btn btn-secondary">
+                Explore product
+              </Link>
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          <div className="hero-visual">
+            <img
+              src="/images/hero-dashboard.png"
+              alt="Samai platform overview"
+            />
           </div>
         </div>
+      </section>
 
-        {/* ================= VALUE STRIP ================= */}
+      {/* ================= VALUE STRIP ================= */}
+      <section className="value-section">
         <div className="value-strip">
-          <div className="value-item reveal delay-1">
+
+          <div className="value-item">
             <FiSettings className="value-icon" />
             <strong>Digitalise Business Functions</strong>
             <span>
               Transform manual, fragmented activities into streamlined,
-              software-driven workflows that run faster and smarter.
+              software-driven workflows.
             </span>
           </div>
 
-          <div className="value-item reveal delay-2">
+          <div className="value-item">
             <FiMessageSquare className="value-icon" />
             <strong>Communicate with Context</strong>
             <span>
               Enable conversations enriched with process data, history,
-              and decisions — so everyone understands the what, why, and next.
+              and decisions.
             </span>
           </div>
 
-          <div className="value-item reveal delay-3">
+          <div className="value-item">
             <FiBarChart2 className="value-icon" />
             <strong>Manage with Efficiency</strong>
             <span>
-              Streamline oversight and execution with tools that reduce effort,
-              eliminate waste, and keep work moving forward.
+              Streamline oversight and execution while reducing effort
+              and waste.
             </span>
           </div>
 
-          <div className="value-item reveal delay-4">
+          <div className="value-item">
             <FiTrendingUp className="value-icon" />
             <strong>Scale with Confidence</strong>
             <span>
-              Grow operations, users, and complexity without losing control,
-              clarity, or reliability.
+              Grow operations and complexity without losing control
+              or clarity.
             </span>
           </div>
+
         </div>
       </section>
 
-      {/* ================= WHAT SAMAI ENABLES ================= */}
-      <section className="reveal">
-        <CapabilitiesSection />
-      </section>
+      {/* ================= FEATURE SHOWCASE ================= */}
+      <FeatureShowcase />
 
       {/* ================= PROCESS BRIDGE ================= */}
-      <section className="reveal">
-        <ProcessBridge />
-      </section>
+      <ProcessBridge />
 
-      {/* ================= FEATURE SHOWCASE ================= */}
-      <section className="reveal">
-        <FeatureShowcase />
-      </section>
+      {/* ================= CAPABILITIES ================= */}
+      <CapabilitiesSection />
+
     </main>
-  );
-}
-
-/* ================= LOCAL COMPONENTS ================= */
-
-function Problem({ title, desc }) {
-  return (
-    <div className="problem-card reveal">
-      <h4>{title}</h4>
-      <p>{desc}</p>
-    </div>
   );
 }
