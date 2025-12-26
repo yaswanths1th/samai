@@ -523,13 +523,25 @@ button:hover {
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 800px) {
+  
+  .bridge-content {
+    max-width: 100%;          /* remove narrow feeling */
+    padding: 0 16px;
+    text-align: left;          /* less squeeze on sides */
+  }
   .bridge-content h2 {
     font-size: 34px;
   }
+    .bridge-desc,
+  .bridge-subheading {
+    max-width: 100%;          /* allow full width text */
+  }
+
 
   .bridge-stats {
     grid-template-columns: 1fr;
+     gap: 20px;
   }
 }
 .bridge-subheading {
@@ -553,6 +565,13 @@ button:hover {
   letter-spacing: -0.02em;
 }
 
+.process-bridge {
+    background: #cadaffa3;
+    box-shadow: #00000033 0px 20px 60px -15px;
+    border-radius: 20px;
+    font-size: 16px;
+    margin: 25px;
+  }
 /*C:\myprojects\samai\samai-website\src>type "C:\myprojects\samai\samai-website\src\pages\industryDomains.css" */
 /* ================= PAGE ================= */
 /* ================= PAGE ================= */
@@ -3618,6 +3637,15 @@ body {
     opacity: 0;
     transition: all 0.25s ease;
   }
+  .navbar {
+    padding: 0 16px;                 /* tighter mobile padding */
+  }
+
+  /* Left: logo */
+  .nav-left {
+    gap: 0;
+                            /* remove desktop gap */
+  }
 
   .nav-links.open {
     display: flex;
@@ -3650,9 +3678,33 @@ body {
 
   /* Optional: hide desktop auth buttons inside menu if needed */
   .nav-right {
-    gap: 12px;
+    margin-left:auto;               /* 🔑 push right group */
+    display: flex;
+    align-items: center;
+    gap: 14px; /* space between login, signup, menu */
+  }
+
+    .brand-text {
+    font-size: 18px;
+  }
+
+  .brand-icon {
+    height: 28px;
+  }
+    /* Reduce visual width of Signup button */
+  .nav-cta {
+    padding: 6px 10px;     /* tighter button */
+    font-size: 13px;
+  }
+
+  /* Reduce hamburger visual size */
+  .menu-toggle {
+    font-size: 22px;       /* ⬅ was 26px */
+    padding: 4px;          /* prevent invisible click padding */
   }
 }
+
+
 
 /* =========================
    COMMON PAGE SECTIONS (NO MARGINS)
@@ -3665,6 +3717,7 @@ body {
 .industry-hero {
   padding-top: 40px;
 }
+
 
 /* =========================
    VALUE STRIP
