@@ -2417,35 +2417,61 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 /* =========================
    RESPONSIVE
 ========================= */
+/* =========================
+   MOBILE RESPONSIVE FIX — NO OVERFLOW
+========================= */
+
 @media (max-width: 640px) {
-   .submit-btn,
-  .secondary-btn {
-    width: 100%;
+
+  /* Page padding safety */
+  .connect-page {
+    padding-left: 0;
+    padding-right: 0;
   }
+
+  /* Stack layout */
   .connect-wrapper {
     grid-template-columns: 1fr;
+    padding: 0 16px 80px;      /* 🔑 control spacing here */
   }
-  .contact-form-panel{
-    width: 350px;
+
+  /* Panels must NEVER have fixed widths */
+  .contact-info-panel,
+  .contact-form-panel {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
   }
-  .contact-info-panel{
-    width:300px,
-  }
+
+  /* Info cards */
   .info-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
+  /* Form rows */
   .form-row {
     grid-template-columns: 1fr;
   }
 
+  /* Hero text */
   .connect-hero h1 {
-    font-size: 48px;
+    font-size: 34px;
   }
+
+  /* Buttons */
   .form-actions {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 12px;
+    margin-top: 20px;
+  }
+
+  .submit-btn,
+  .secondary-btn {
+    width: 100%;
+    margin: 0;
   }
 }
 
