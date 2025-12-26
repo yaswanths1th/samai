@@ -2425,6 +2425,16 @@ background: linear-gradient(10deg, #2563eb, #203370);}
   .connect-wrapper {
     grid-template-columns: 1fr;
   }
+  .contact-form-panel{
+    width: 350px;
+  }
+  .contact-info-panel{
+    width:300px,
+  }
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 
   .form-row {
     grid-template-columns: 1fr;
