@@ -555,7 +555,7 @@ button:hover {
 
 /*C:\myprojects\samai\samai-website\src>type "C:\myprojects\samai\samai-website\src\pages\industryDomains.css" */
 /* ================= PAGE ================= */
-
+/* ================= PAGE ================= */
 
 .industry-page {
   color: #0f172a;
@@ -566,8 +566,18 @@ button:hover {
 
 .industry-hero {
   text-align: center;
-  background: radial-gradient(700px 400px at 20% 20%, rgba(96, 165, 250, 0.14), transparent 55%), linear-gradient(180deg, #eef4ff 0%, #f8faff 60%, #ffffff 100%);
-
+  background:
+    radial-gradient(
+      700px 400px at 20% 20%,
+      rgba(96, 165, 250, 0.14),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #eef4ff 0%,
+      #f8faff 60%,
+      #ffffff 100%
+    );
   padding: 100px 20px 60px;
 }
 
@@ -583,10 +593,10 @@ button:hover {
 }
 
 .industry-hero-subtitle {
-  text-align: center;
   max-width: 720px;
   margin: 0 auto;
   font-size: 18px;
+  text-align: center;
   color: #475569;
   line-height: 1.6;
 }
@@ -595,37 +605,28 @@ button:hover {
 
 .industry-sections {
   background-color: #ffffff;
-  padding: 0;
 }
 
-/* ================= BLOCK HEADER (FULL WIDTH BAND) ================= */
-
-/* ================= BLOCK HEADER (FULL WIDTH BAND) ================= */
+/* ================= BLOCK HEADER ================= */
 
 .industry-block-header {
   width: 100%;
   padding: 40px 8%;
   margin-bottom: -40px;
-
-  background: #ffffff;   /* ✅ FORCE WHITE */
-  
+  background: #ffffff;
   animation: slideFromLeft 0.9s ease both;
 }
-
 
 .industry-block-header h2 {
   font-size: 38px;
   font-weight: 700;
   margin-bottom: 16px;
-  margin-left: -20px;
   color: #000000;
 }
 
 .industry-block-header p {
-  max-width:100%;                 /* ⬅ readable width */
+  max-width: 100%;
   font-size: 16px;
-    margin-left: -20px;
-
   line-height: 1.75;
   color: #475569;
 }
@@ -634,52 +635,20 @@ button:hover {
 
 .industry-section {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: stretch;
   gap: 60px;
-  padding: 60px 6% 80px;
-
-  animation: slideFromLeft 0.9s ease both;
+  padding: 70px 6% 80px;
+  margin-left: 30px;
 }
 
-/* ================= CAROUSEL ================= */
-
-.carousel-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+/* Desktop alternating layout */
+.industry-section.reverse .industry-text {
+  order: 2;
 }
 
-.carousel-arrow {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #2563eb;
-  cursor: pointer;
-  padding: 10px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  transition: color 0.3s;
-}
-
-.carousel-arrow:hover {
-  color: #1d4ed8;
-}
-
-.carousel-arrow.prev {
-  left: 10px;
-}
-
-.carousel-arrow.next {
-  right: 10px;
-}
-
-.carousel-content {
-  width: 100%;
-  max-width: 1200px;
+.industry-section.reverse .industry-image {
+  order: 1;
 }
 
 /* ================= TEXT ================= */
@@ -714,20 +683,15 @@ button:hover {
 .industry-image {
   display: flex;
   justify-content: flex-end;
-  position: relative;
 }
 
 .industry-image img {
   position: sticky;
-  top: 120px;                 /* ⬅ sticks below navbar */
+  top: 120px;
   width: 100%;
   max-width: 640px;
   border-radius: 24px;
   box-shadow: 0 40px 100px rgba(37, 99, 235, 0.25);
-}
-
-.industry-section.reverse .industry-image img {
-  animation: slideFromLeft 0.9s ease both;
 }
 
 /* ================= FOOTER ================= */
@@ -764,27 +728,29 @@ button:hover {
   }
 }
 
-@keyframes slideFromRight {
-  from {
-    opacity: 0;
-    transform: translateX(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 /* ================= RESPONSIVE ================= */
 
+/* Tablet & Mobile */
 @media (max-width: 1024px) {
   .industry-section {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
+  /* FORCE correct order */
+  .industry-text {
+    order: 1 !important;
+  }
+
   .industry-image {
+    order: 2 !important;
     justify-content: center;
+  }
+
+  /* Disable sticky on mobile */
+  .industry-image img {
+    position: relative;
+    top: auto;
   }
 
   .industry-block-header {
@@ -792,6 +758,7 @@ button:hover {
   }
 }
 
+/* Small mobile */
 @media (max-width: 640px) {
   .industry-hero h1 {
     font-size: 34px;
@@ -799,7 +766,14 @@ button:hover {
 
   .industry-block-header h2 {
     font-size: 24px;
+  }
 
+  .industry-text h3 {
+    font-size: 15px;
+  }
+
+  .industry-text li {
+    font-size: 15px;
   }
 
   .industry-section {
@@ -808,19 +782,6 @@ button:hover {
 
   .industry-image img {
     max-width: 100%;
-  }
-
-  .carousel-arrow {
-    font-size: 20px;
-    padding: 8px;
-  }
-
-  .carousel-arrow.prev {
-    left: 5px;
-  }
-
-  .carousel-arrow.next {
-    right: 5px;
   }
 }
 
@@ -1021,7 +982,7 @@ background: linear-gradient(10deg, #2563eb, #203370);}
   border: none;
   text-align: center;
   border-radius: 10px;
-  margin-bottom: 24px;
+  margin: 8px 1%;
 }
 
 /* FEATURES */
@@ -1077,7 +1038,8 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 
 .btn-primary full{
   background: #2563eb;
-  text-align: center;
+  text-align: right;
+
   color: #ffffff;
 
 }
@@ -2208,17 +2170,12 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 
 /*C:\myprojects\samai\samai-website\src>type "C:\myprojects\samai\samai-website\src\styles\connect.css" */
 
-/* =========================
-   CONNECT PAGE (BASE)
-========================= */
-
 .connect-page {
   font-family: "Work Sans", sans-serif;
+  background: #f8fafc;
   color: #0f172a;
-  min-height: 100vh;
-  overflow-x: hidden;
-
-  background:
+   padding-top: 40px;
+   background:
     radial-gradient(900px 500px at 75% 40%, rgba(37,99,235,0.18), transparent 60%),
     radial-gradient(700px 400px at 20% 20%, rgba(96,165,250,0.14), transparent 55%),
     linear-gradient(180deg, #eef4ff 0%, #f8faff 60%, #ffffff 100%);
@@ -2227,12 +2184,11 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 /* =========================
    HERO
 ========================= */
-
 .connect-hero {
   max-width: 860px;
-  margin: 0 auto 72px;
+  margin: 0px auto 72px;
   text-align: center;
-  padding: 40px 20px 0;
+  padding: 0 20px;
 }
 
 .connect-hero h1 {
@@ -2249,26 +2205,20 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 }
 
 /* =========================
-   MAIN LAYOUT
+   LAYOUT
 ========================= */
-
 .connect-wrapper {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
   padding: 0 20px 120px;
-
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   gap: 48px;
-
-  width: 100%;
-  box-sizing: border-box;
 }
 
 /* =========================
    INFO PANEL
 ========================= */
-
 .contact-info-panel {
   background: #ffffff;
   border-radius: 18px;
@@ -2281,7 +2231,6 @@ background: linear-gradient(10deg, #2563eb, #203370);}
   margin-bottom: 28px;
 }
 
-/* INFO GRID */
 .info-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2295,6 +2244,12 @@ background: linear-gradient(10deg, #2563eb, #203370);}
   border-radius: 14px;
   border: 1px solid #e5e7eb;
   background: #ffffff;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.info-card:hover {
+  border-color: #2563eb;
+  transform: translateY(-2px);
 }
 
 .info-card svg {
@@ -2319,7 +2274,6 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 /* =========================
    FORM PANEL
 ========================= */
-
 .contact-form-panel {
   background: #ffffff;
   border-radius: 18px;
@@ -2335,7 +2289,6 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 /* =========================
    SUCCESS MESSAGE
 ========================= */
-
 .success-message {
   display: flex;
   align-items: center;
@@ -2353,9 +2306,8 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 }
 
 /* =========================
-   FORM FIELDS
+   FORM
 ========================= */
-
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -2365,7 +2317,6 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 
 .input-group {
   position: relative;
-  width: 100%;
 }
 
 .input-group svg {
@@ -2386,17 +2337,23 @@ background: linear-gradient(10deg, #2563eb, #203370);}
   background: #ffffff;
   font-size: 14px;
   color: #0f172a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .input-group textarea {
   resize: none;
 }
 
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: #94a3b8;
+}
+
 .input-group input:focus,
 .input-group textarea:focus {
   outline: none;
   border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
 
 .textarea svg {
@@ -2405,89 +2362,122 @@ background: linear-gradient(10deg, #2563eb, #203370);}
 }
 
 /* =========================
-   FORM ACTIONS (BUTTONS)
+   BUTTON
 ========================= */
-
-.form-actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 18px;
-  width: 100%;
-}
-
-/* PRIMARY */
-.submit-btn,
-.secondary-btn {
-  width: 100%;
+.submit-btn {
+  margin-top: 12px;
+  width: 180px;
   background: linear-gradient(135deg, #2563eb, #203370);
+  display: inline-flex;          /* key */
+  align-items: center;           /* vertical center */
+  justify-content: center;       /* horizontal center */
+
   color: #ffffff;
   border: none;
   padding: 14px;
   border-radius: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;                /* prevents vertical drift */
+
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
-.submit-btn:hover,
-.secondary-btn:hover {
+.submit-btn:hover {
+  background: linear-gradient(10deg, #2563eb, #203370);
   transform: translateY(-1px);
 }
 
-.submit-btn:active,
-.secondary-btn:active {
+.submit-btn:active {
   transform: translateY(0);
 }
 
+
 /* =========================
-   RESPONSIVE FIXES
+   RESPONSIVE
 ========================= */
-
-/* Tablet */
-@media (max-width: 900px) {
-  .connect-wrapper {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-}
-
-/* Mobile */
 @media (max-width: 640px) {
-
-  .connect-hero h1 {
-    font-size: 32px;
+   .submit-btn,
+  .secondary-btn {
+    width: 100%;
   }
-
-  .connect-hero p {
-    font-size: 16px;
-  }
-
   .connect-wrapper {
-    padding: 0 16px 80px;
-  }
-
-  .info-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .contact-info-panel,
-  .contact-form-panel {
-    padding: 24px;
   }
 
   .form-row {
     grid-template-columns: 1fr;
   }
 
+  .connect-hero h1 {
+    font-size: 48px;
+  }
   .form-actions {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+}
+
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* 👈 equal width buttons */
+  gap: 14px;
+  margin-top: 18px;
+}
+
+/* =========================
+   SECONDARY CTA (MATCH PRIMARY)
+========================= */
+
+.secondary-btn {
+  margin-top: 12px;
+  margin-left: 0px;
+    width: 180px;
+    background: linear-gradient(135deg, #2563eb, #203370);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+
+.secondary-btn:hover {
+  background: linear-gradient(10deg, #2563eb, #203370);
+  transform: translateY(-1px);
+}
+
+.secondary-btn:active {
+  transform: translateY(0);
+} 
+
+/* =========================
+   MOBILE FIX — BUTTON OVERLAP
+========================= */
+
+@media (max-width: 640px) {
+
+  .form-actions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .submit-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .secondary-btn {
+    margin-left: 0;
   }
 }
 
@@ -3549,7 +3539,20 @@ body {
 .nav-right {
   display: flex;
   align-items: center; /* 🔑 vertical alignment fix */
+  gap: 40px; /* Gap between auth group and logo group */
+}
+
+/* Auth group */
+.nav-auth-group {
+  display: flex;
+  align-items: center;
   gap: 14px;
+}
+
+/* Logo group */
+.nav-logo-group {
+  display: flex;
+  align-items: center;
 }
 
 /* Login link */
@@ -3706,61 +3709,6 @@ body {
   line-height: 1.6;
   color: #64748b;
   max-width: 95%;
-}
-
-/* =========================
-   MOBILE NAVBAR CLEANUP
-========================= */
-
-@media (max-width: 768px) {
-
-  /* Reduce navbar side padding */
-  .navbar {
-    padding: 0 16px;
-    height: 64px;
-  }
-
-  /* Tighten left side */
-  .nav-left {
-    gap: 12px;
-  }
-
-  .brand-text {
-    font-size: 18px;
-  }
-
-  .brand-icon {
-    height: 28px;
-  }
-
-  /* Tighten right side */
-  .nav-right {
-    gap: 8px;
-  }
-
-  /* Login link */
-  .nav-auth {
-    font-size: 14px;
-    padding: 6px 4px;
-  }
-
-  /* Signup button */
-  .btn-primary {
-    padding: 6px 10px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
-
-  /* Hamburger */
-  .menu-toggle {
-    font-size: 22px;
-    padding: 4px;
-  }
-
-  /* Adjust dropdown top to new navbar height */
-  .nav-links {
-    top: 64px;
-  }
 }
 
 

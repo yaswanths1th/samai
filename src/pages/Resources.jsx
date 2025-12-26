@@ -30,7 +30,7 @@ export default function Resources() {
           variant="pink"
           icon={<FiVideo />}
           title="Videos"
-          desc="Product walkthroughs and real BPM use-cases showing how structured processes replace manual work."
+          desc="Product walkthroughs and real use-cases showing how structured processes replace manual work."
           linkText="Watch videos"
         />
 

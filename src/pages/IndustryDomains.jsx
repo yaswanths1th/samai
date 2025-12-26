@@ -94,41 +94,37 @@ export default function IndustryDomains() {
       </section>
 
       {/* ================= DOMAINS ================= */}
-      <section className="industry-sections">
-        {DOMAINS.map((d, i) => (
-          <section key={d.title}>
-            {/* ===== BLOCK TITLE + DESC (OPTIONAL) ===== */}
-            {d.blockTitle && (
-              <div className="industry-block-header">
-                <h2>{d.blockTitle}</h2>
-                <p>{d.blockDesc}</p>
-              </div>
-            )}
+<section className="industry-sections">
+  {DOMAINS.map((d, i) => (
+    <section key={d.title}>
+      {d.blockTitle && (
+        <div className="industry-block-header">
+          <h2>{d.blockTitle}</h2>
+          <p>{d.blockDesc}</p>
+        </div>
+      )}
 
-            {/* ===== MAIN DOMAIN BLOCK ===== */}
-            <div
-              className={`industry-section ${
-                i % 2 !== 0 ? "reverse" : ""
-              }`}
-            >
-              <div className="industry-text">
-                <h3>{d.title}</h3>
-                <p className="industry-subtitle">{d.subtitle}</p>
+      <div className={`industry-section ${i % 2 !== 0 ? "reverse" : ""}`}>
+        {/* TEXT */}
+        <div className="industry-text">
+          <h3>{d.title}</h3>
+          {d.subtitle && <p className="industry-subtitle">{d.subtitle}</p>}
+          <ul>
+            {d.points.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+        </div>
 
-                <ul>
-                  {d.points.map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
-              </div>
+        {/* IMAGE */}
+        <div className="industry-image">
+          <img src={d.image} alt={d.title} />
+        </div>
+      </div>
+    </section>
+  ))}
+</section>
 
-              <div className="industry-image">
-                <img src={d.image} alt={d.title} />
-              </div>
-            </div>
-          </section>
-        ))}
-      </section>
     </main>
   );
 }
